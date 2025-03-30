@@ -143,39 +143,62 @@ function App() {
     <div className={`min-h-screen bg-light-900 dark:bg-dark-900 text-gray-800 dark:text-gray-100 transition-colors duration-200`}>
       {/* Header */}
       <header className="bg-light-800 dark:bg-dark-800 border-b border-light-600 dark:border-dark-700 sticky top-0 z-50">
-        <div className="max-w-[95rem] mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-8">
-              <div className="flex items-center">
-                <Activity className="w-8 h-8 text-purple-600 dark:text-purple-400 mr-3" />
-                <h1 className="text-2xl font-semibold text-gray-900 dark:text-purple-100">Sales Dashboard</h1>
-              </div>
-              
+        <div className="max-w-[95rem] mx-auto px-4 py-3">
+          <div className="flex flex-wrap justify-between items-center gap-4">
+            
+            {/* Logo Section */}
+            <div className="flex items-center space-x-3">
+              <Activity className="w-7 h-7 text-purple-600 dark:text-purple-400" />
+              <h1 className="text-lg sm:text-2xl font-semibold text-gray-900 dark:text-purple-100">
+                Sales Dashboard
+              </h1>
             </div>
-            <div className="flex items-center space-x-4">
+            
+            {/* Buttons Section */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
               
+              {/* Dark Mode Toggle */}
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-lg bg-light-700 dark:bg-dark-700 text-purple-600 dark:text-purple-400 hover:bg-light-600 dark:hover:bg-dark-600 transition-all duration-200 border border-light-600 dark:border-dark-600 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+                className="p-2 rounded-lg bg-light-700 dark:bg-dark-700 text-purple-600 dark:text-purple-400 
+                          hover:bg-light-600 dark:hover:bg-dark-600 transition-all duration-200 
+                          border border-light-600 dark:border-dark-600 hover:border-purple-500/50 
+                          hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] focus:outline-none focus:ring-2 focus:ring-purple-500/20"
               >
                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
+
+              {/* Filters Button */}
               <button 
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-purple-200 bg-light-700 dark:bg-dark-700 rounded-lg hover:bg-light-600 dark:hover:bg-dark-600 transition-all duration-200 border border-light-600 dark:border-dark-600 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+                className="flex items-center px-3 sm:px-4 py-2 text-sm font-medium text-gray-700 dark:text-purple-200 
+                          bg-light-700 dark:bg-dark-700 rounded-lg hover:bg-light-600 dark:hover:bg-dark-600 
+                          transition-all duration-200 border border-light-600 dark:border-dark-600 
+                          hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] 
+                          focus:outline-none focus:ring-2 focus:ring-purple-500/20"
               >
-                <Filter className="w-4 h-4 mr-2" />
-                Filters
+                <Filter className="w-4 h-4 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">Filters</span>
               </button>
-              <button className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-purple-200 bg-light-700 dark:bg-dark-700 rounded-lg hover:bg-light-600 dark:hover:bg-dark-600 transition-all duration-200 border border-light-600 dark:border-dark-600 hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] focus:outline-none focus:ring-2 focus:ring-purple-500/20">
-                <Download className="w-4 h-4 mr-2" />
-                Export
+
+              {/* Export Button */}
+              <button 
+                className="flex items-center px-3 sm:px-4 py-2 text-sm font-medium text-gray-700 dark:text-purple-200 
+                          bg-light-700 dark:bg-dark-700 rounded-lg hover:bg-light-600 dark:hover:bg-dark-600 
+                          transition-all duration-200 border border-light-600 dark:border-dark-600 
+                          hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] 
+                          focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+              >
+                <Download className="w-4 h-4 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">Export</span>
               </button>
-              
+
             </div>
+
           </div>
         </div>
       </header>
+
 
       <main className="max-w-[95rem] mx-auto px-4 py-8">
         {/* Filters Panel */}
